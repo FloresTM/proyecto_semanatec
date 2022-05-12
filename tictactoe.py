@@ -8,10 +8,23 @@ Exercises
 4. How could you create a computer player?
 """
 
-from turtle import up, goto, down, circle, update
+import sys
+
+from turtle import up, goto, down, circle, update, color
 from turtle import setup, hideturtle, tracer, onscreenclick, done
+import turtle
 
 from freegames import line
+
+import sys
+
+sam = turtle.Turtle()
+mike = turtle.Turtle()
+mike.hideturtle()
+sam.hideturtle()
+
+# La definición de grid nos permite crear el fondo
+# Las lineas que sirven para formar el fondo.
 
 
 def grid():
@@ -21,19 +34,46 @@ def grid():
     line(-200, -67, 200, -67)
     line(-200, 67, 200, 67)
 
+# Definir draw nos permite dibujar al jugador que usará la X.
+
 
 def drawx(x, y):
     """Draw X player."""
-    line(x, y, x + 133, y + 133)
-    line(x, y + 133, x + 133, y)
+    mike.color('blue')
+    mike.up()
+    mike.goto(x + 50, y + 75)
+    mike.down()
+    mike.goto(x + 85, y + 40)
+    mike.up()
+    mike.goto(x + 85, y + 75)
+    mike.down()
+    mike.goto(x + 50, y + 40)
+    mike.up()
+
+    # Las lineas de código de abajo son simplemente
+    # Para ilustrar los puntos que se usaron inicialmente
+    # (ya achicados)
+    # line(x + 50, y + 75, x + 85, y + 40)
+    # line(x + 85, y + 75, x + 50, y + 40)
+
+   
+    
+# Drawo dibuja al jugador que usará O.
 
 
 def drawo(x, y):
     """Draw O player."""
-    up()
-    goto(x + 67, y + 5)
-    down()
-    circle(62)
+    sam.hideturtle()
+    sam.color('red')
+    sam.up()
+    sam.goto(x + 67, y + 20)
+    sam.down()
+    sam.circle(35)
+    
+    
+
+# Detecta donde se pulsa en el espacio, así que
+# Ahí pone el simbolo correspondiente
 
 
 def floor(value):
@@ -43,6 +83,8 @@ def floor(value):
 
 state = {'player': 0}
 players = [drawx, drawo]
+
+# Dibuja la O o la X en el cuadro que se presione.
 
 
 def tap(x, y):
