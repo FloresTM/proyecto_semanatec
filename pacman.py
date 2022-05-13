@@ -24,6 +24,7 @@ ghosts = [
     [vector(-180, -160), vector(0, 5)],
     [vector(120, 160), vector(0, -5)],
     [vector(100, -160), vector(-5, 0)],
+    [vector(0, 80), vector(-5, 0)],
 ]
 # fmt: off
 tiles = [
