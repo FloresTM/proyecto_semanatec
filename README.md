@@ -2,7 +2,12 @@
 
 Yuna Chung A01709043
 
-<<<<<<< HEAD
+- Desplegar el número de taps realizado por el usuario.
+- Desplegar un mensaje que indica que se acabó el juego.
+
+
+# Juego de Tic Tac Toe
+
 Primer upload del documento: código base del juego tic tac toe
 
 Segundo upload del documento: corrección del código para cumplir con los 
@@ -15,6 +20,7 @@ Cuarto y último upload del código: Se le añade la función de no permitir
 repetir el espacio usado, además de comentarios donde se explica como se 
 realiza esto.
 
+# Juego de Pacman
 
 Sebastian Flores
 A01709229
