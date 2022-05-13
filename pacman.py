@@ -2,7 +2,7 @@
 
 Exercises
 
-1. Change the board..    
+1. Change the board..
 2. Change the number of ghosts..
 3. Change where pacman starts..
 4. Make the ghosts faster/slower..
@@ -11,11 +11,21 @@ Exercises
 
 from random import choice
 
-# turtle is a library that allows people to create shapes and figures. It is used to develop smaller games and programs.
-from turtle import *
+# turtle is a library that allows people to create shapes and figures.
+# It is used to develop smaller games and programs.
+from turtle import up, goto
+from turtle import update, ontimer
+from turtle import setup, hideturtle
+from turtle import onkey
+from turtle import listen
+from turtle import done
+from turtle import tracer
+from turtle import clear
+from turtle import dot
+from turtle import bgcolor
+from turtle import Turtle
 
-import turtle
-# vector is imported and use to indicate the position of the objects in the game
+# vector is imported and use to indicate the position of the objects.
 from freegames import floor, vector
 
 # Initially the score will be 0.
@@ -23,17 +33,19 @@ state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
 
-# aim sets the direction of the object when initiated, since it is postive in the x-axis is starting direction is to the right
+# aim sets the direction of the object when initiated,
+# since it is postive in the x-axis is starting direction is to the right
 aim = vector(5, 0)
 
 # Vector indicates the initial position of this object in x and y axis.
 pacman = vector(-40, 0)
 
-
-# As we can see, 4 ghosts or enemies will appear at the beggining of the game. 
-# We can also see the ghosts have a predetermined position as indicated by the vectors which are (x, y) axis.
+# As we can see, 4 ghosts or enemies will appear at the beggining of the game.
+# We can also see the ghosts have a predetermined position as indicated by
+# the vectors which are (x, y) axis.
 # the second vector indicates the starting direction of the object.
-# Also, the direction integrates the speed, oringinally the speed was 5, but I changed it to 10 to make the ghosts faster.
+# Also, the direction integrates the speed, oringinally the speed was 5,
+# but I changed it to 10 to make the ghosts faster.
 ghosts = [
     [vector(-180, 160), vector(10, 0)],
     [vector(-180, -160), vector(0, 10)],
@@ -45,9 +57,12 @@ ghosts = [
 
 # fmt: off
 
-# A binary language is used to create the "arena". In total we have a playing field of 20 x 20.
-# As we know, a 0 indicates false, and a 1 indicates true. When we see a zero the tile will be "deactivated/blocked off"
-# If the tiles are blocked of they will act as walls since they don't allow any movement.
+# A binary language is used to create the "arena". In total we have a playing
+# field of 20 x 20.
+# As we know, a 0 indicates false, and a 1 indicates true. When we see a zero
+# the tile will be "deactivated/blocked off."
+# If the tiles are blocked of they will act as walls since they don't allow
+# any movement.
 # On the other hand a 1(true) will let the objects trough.
 tiles = [
     0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0,
@@ -110,7 +125,9 @@ def valid(point):
 
     return point.x % 20 == 0 or point.y % 20 == 0
 
-# the function world is used to indicate the board and its properties such as its color
+
+# the function world is used to indicate the board and its
+# properties such as its color
 def world():
     """Draw world using path."""
 
@@ -133,6 +150,7 @@ def world():
                 path.goto(x + 10, y + 10)
                 path.dot(2, 'white')
 
+
 # this section of the code will allow us to display or to 'write' the score.
 def move():
     """Move pacman and all ghosts."""
@@ -150,7 +168,7 @@ def move():
     if tiles[index] == 1:
         # the squares that have been covered will changed to a 2
         tiles[index] = 2
-        
+
         # this will update the score by one point
         state['score'] += 1
         x = (index % 20) * 20 - 200
@@ -160,7 +178,8 @@ def move():
     up()
     goto(pacman.x + 10, pacman.y + 10)
 
-    # the first number indicates the size of the object and the second indicates the color
+    # the first number indicates the size of the object
+    # and the second indicates the color
     dot(20, 'purple')
 
     # this sets the movement of the ghost
@@ -169,7 +188,8 @@ def move():
             point.move(course)
         else:
             # we can see the 4 option in which the ghost can move
-            # oringinally the speed was 5, but I changed it to 10 to make the ghosts faster.
+            # oringinally the speed was 5, but I changed it to 10
+            # to make the ghosts faster.
             options = [
                 vector(10, 0),
                 vector(-10, 0),
@@ -177,17 +197,16 @@ def move():
                 vector(0, -10),
             ]
             plan = choice(options)
-            # the ghost can move towards x(left or why), or towards y (up or down)
+            # the ghost can move towards x(left or why), or towards
+            # y (up or down)
             course.x = plan.x
             course.y = plan.y
-            
 
         up()
         goto(point.x + 10, point.y + 10)
-        
 
-
-    # the first number indicates the size of the object and the second indicates the color
+    # the first number indicates the size of the object and the
+    # second indicates the color
 
         dot(20, 'green')
 
@@ -200,13 +219,16 @@ def move():
 
     ontimer(move, 100)
 
-# this function will allow the user to change the postion of the object (pacman) when a key is pressed.
+
+# this function will allow the user to change the postion of the
+# object (pacman) when a key is pressed.
 def change(x, y):
     """Change pacman aim if valid."""
+
     if valid(pacman + vector(x, y)):
         aim.x = x
         aim.y = y
-        # this allows to change the direction of the object with our arrows.     
+        # this allows to change the direction of the object with our arrows.
 
 
 setup(420, 420, 370, 0)
