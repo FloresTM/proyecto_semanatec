@@ -7,6 +7,7 @@ Yuna Chung A01709043
 
 
 # Juego de Tic Tac Toe
+Alan Patricio González Bernal A01067546
 
 Primer upload del documento: código base del juego tic tac toe
 
