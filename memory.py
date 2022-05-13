@@ -9,8 +9,6 @@ Exercises:
 5. Use letters instead of tiles.
 """
 
-
-
 from turtle import up, goto, down
 from turtle import color, begin_fill, forward
 from turtle import left, end_fill, clear
@@ -26,10 +24,16 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
+cont = 0
 COUNT = 0
 
 
 def increment():
+    global cont
+    cont += 1
+
+
+def increment2():
     global COUNT
     COUNT += 1
 
@@ -64,12 +68,14 @@ def tap(x, y):
 
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
         state['mark'] = spot
-        increment()
+        increment2()
         print("NUMBER OF TRY:", COUNT)
     else:
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+        increment()
+        print(cont)
 
 
 def draw():
@@ -92,21 +98,28 @@ def draw():
         goto(x + 2, y)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
-    
+
     if COUNT > 100:
         clear()
         color('Red')
-        goto(0,0)
-        write(f'Game Over', align='center',font=('Arial',30,'bold'))
-        goto(0,-50)
+        goto(0, 0)
+        write('Game Over', align='center', font=('Arial', 30, 'bold'))
+        goto(0, -50)
         done()
         exit()
-    
-    
+
+    if cont == 32:
+        clear()
+        color('Red')
+        goto(0, 0)
+        write("Victory", align='center', font=("Arial", 30, "bold"))
+        goto(0, -50)
+        done()
+        exit()
+
     update()
     ontimer(draw, 100)
 
-    
 
 shuffle(tiles)
 setup(420, 420, 370, 0)

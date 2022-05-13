@@ -1,8 +1,8 @@
-Alan Patricio González Bernal
-A01067546
+# Juego de Memoria
 
-TIC TAC TOE
+Yuna Chung A01709043
 
+<<<<<<< HEAD
 Primer upload del documento: código base del juego tic tac toe
 
 Segundo upload del documento: corrección del código para cumplir con los 
@@ -29,3 +29,7 @@ Pac-man
 5. Si aplicado, este commit subira la tercera version de correciones. En esta correcion solamente cambiamos la posicion inicial de pacman modificando su 'vector' que define la posicion. En el commit pasado me adelante un paso en la posicion, ene ste commit solo estoy regresando a como deberia de estar.
 6. Si aplicado, este commit subira la cuarta version de correciones. En esta version cambiamos la velocidad de movimiento de los fantasmas modificando el vector de movimiento en el codigo. Elegi poner el doble de velocidad que pacman.
 7. Si aplicado, este commit subira una version donde esta todo el codigo comentado y donde se analizo mucho de sus componentes. Esta variacion tambien tiene un par de cambios en estetica.
+=======
+- Desplegar el número de taps realizado por el usuario.
+- Desplegar un mensaje que indica que se acabó el juego.
+>>>>>>> A01709043
