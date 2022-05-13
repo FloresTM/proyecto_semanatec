@@ -10,3 +10,7 @@ estándares de flake8.
 
 Tercer upload del documento: Comentarios para mejorar la comprensión del 
 código.
+
+Cuarto y último upload del código: Se le añade la función de no permitir 
+repetir el espacio usado, además de comentarios donde se explica como se 
+realiza esto.
