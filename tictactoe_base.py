@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """Tic Tac Toe
 Exercises
 1. Give the X and O a different color and width.
@@ -6,6 +7,8 @@ Exercises
 4. How could you create a computer player?
 """
 
+=======
+>>>>>>> A01067546
 from turtle import *
 
 from freegames import line
@@ -59,4 +62,8 @@ tracer(False)
 grid()
 update()
 onscreenclick(tap)
+<<<<<<< HEAD
 done()
+=======
+done()
+>>>>>>> A01067546
